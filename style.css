@@ -1,4 +1,73 @@
-body {
-
-	l
+* {
+	box-sizing: border-box;
+	margin:0;
 }
+
+header {
+	background-color: #0000FF;
+	padding: 2em 3em 2em 3em;	
+	font-family: arial;
+}
+
+body {
+	background-color: #C0C0C0;
+}
+
+form {
+	padding: 2em;
+	background-color:purple;
+	margin: 2em 2em 2em 2em;
+	border-radius: 1em;
+}
+
+h3 {
+	margin: 0 .7em 1em .7em;
+}
+
+label {
+	display: block;
+	text-align: center;
+
+}
+
+input {
+	background-color: grey;
+	border:none;
+	border-radius: .2em;
+	height:2.4em;
+	width:10em;
+	font-size: .9em;
+}
+
+section {
+	display: flex;
+
+}
+
+header h1 {
+	color:white;
+	text-align: center;
+	font-size: 4em;
+	margin-bottom: .3em;
+}
+
+header p {
+	color:black;
+	line-height: 1.7em;
+	text-align:justify;
+	font-size: 1.1em;
+}
+
+.assignmentName,
+.percentage,
+.marks,
+.outOf {
+	margin: 0 .7em 1em .7em;
+
+}
+
+#submit {
+
+}
+
+
