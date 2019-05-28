@@ -16,13 +16,14 @@ body {
 main {
 	padding: 2em 1em 2em 1em;
 	background-color:purple;
-	margin: 2em 2em 2em 2em;
 	border-radius: 1em;
 	font-family: arial;
+	width: 60em;
+	margin: 0 auto;
 }
 
 h3 {
-	margin: 0 .7em 1em .7em;
+	margin: 0 auto;
 	font-size: 1.2em;
 }
 
@@ -38,10 +39,9 @@ input {
 	border:none;
 	border-radius: .2em;
 	height:2.4em;
-	width:8.7em;
+	width:8.9em;
 	font-size: 1em;
-	/*margin: 0em 1em 0 1em;*/
-	margin: 0em .8em 0em 0em;
+	margin: 1em 3em 1em 2.3em;
 }
 
 header h1 {
@@ -55,13 +55,19 @@ header p {
 	color:black;
 	line-height: 1.7em;
 	text-align:justify;
-	font-size: 1.1em;
+	font-size: 1.3em;
 }
 
 /*.sections {
-	margin: 1em .8em 1em 0em;
+	margin: 0em 0em 0em 1em;
 
 }*/
+
+.main-content {
+	text-align: center;
+	margin: 0em 0em 0em .3em;
+
+}
 
 .course {
 	margin: 2em 0em 2em 2.6em;
@@ -75,13 +81,13 @@ header p {
 	display: flex;
 }
 
-
 .submit {
 	width: 12em;
 	height: 3.6em;
 	border-radius: 1em;
 	background-color: #66ccff;
 	font-size:1.2em;
+	margin: 1em 0 .3em 0em;
 }
 
 
