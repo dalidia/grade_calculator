@@ -18,10 +18,12 @@ main {
 	background-color:purple;
 	margin: 2em 2em 2em 2em;
 	border-radius: 1em;
+	font-family: arial;
 }
 
 h3 {
 	margin: 0 .7em 1em .7em;
+	font-size: 1.2em;
 }
 
 label {
@@ -36,14 +38,10 @@ input {
 	border:none;
 	border-radius: .2em;
 	height:2.4em;
-	width:10em;
-	font-size: .9em;
-	margin: 1em 0 0 1em;
-}
-
-section {
-	display: flex;
-
+	width:8.7em;
+	font-size: 1em;
+	/*margin: 0em 1em 0 1em;*/
+	margin: 0em .8em 0em 0em;
 }
 
 header h1 {
@@ -60,22 +58,23 @@ header p {
 	font-size: 1.1em;
 }
 
-.sections {
-	margin: 1em .8em 1em 1em;
+/*.sections {
+	margin: 1em .8em 1em 0em;
 
-}
+}*/
 
 .course {
 	margin: 2em 0em 2em 2.6em;
 }
 
-.labels {
-	text-align: center;
-}
-
 .button {
 	text-align: center;
 }
+
+.labels {
+	display: flex;
+}
+
 
 .submit {
 	width: 12em;

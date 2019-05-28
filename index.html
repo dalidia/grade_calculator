@@ -22,22 +22,24 @@
         <input type="text" id="courseName" name="courseName">
       </div>
       <main>
+        <div class="labels">
+          <h3>Assignment name</h3>
+          <h3>Overall percentage</h3>
+          <h3>Marks obtained</h3>
+          <h3>Marks out of</h3>
+        </div>
         <form name="gradeCalculator" onSubmit="return processForm()" method='get'>
           <section class="main-content">
             <div class="sections">
-              <label class="labels">Assignment name</label>
               <input type='text' name='assignmentName' class="assignmentName">
-            </div>
-            <div class="sections">
-              <label class="labels">Overall percentage</label>
               <input type='text' name='percentage' class="percentage">
+              <input type='text' name='marks' class="marks">
+              <input type='text' name='outOf' class="outOf">
             </div>
             <div class="sections">
-              <label class="labels">Marks obtained</label>
+              <input type='text' name='assignmentName' class="assignmentName">
+              <input type='text' name='percentage' class="percentage">
               <input type='text' name='marks' class="marks">
-            </div>
-            <div class="sections">            
-              <label class="labels">Marks out of</label>
               <input type='text' name='outOf' class="outOf">
             </div>
           </section>
@@ -49,7 +51,7 @@
           <input type='submit' value="Add more assignments" class="submit">
         </div>
       </main>
-      <script src="script.js"></script>
+      <!--<script src="script.js"></script>-->
 
   </body>
 </html>
