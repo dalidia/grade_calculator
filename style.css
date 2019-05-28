@@ -41,7 +41,6 @@ input {
 	height:2.4em;
 	width:8.9em;
 	font-size: 1em;
-	margin: 1em 3em 1em 2.3em;
 }
 
 header h1 {
@@ -90,4 +89,9 @@ header p {
 	margin: 1em 0 .3em 0em;
 }
 
-
+.assignmentName,
+.percentage,
+.marks,
+.outOf {
+	margin: 1em 3em 1em 2.3em;
+}
