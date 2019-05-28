@@ -11,41 +11,45 @@
 
     <link rel="author" href="https://dalidia.github.io">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
       <header>
         <h1>Grade Calculator</h1>
         <p><b>Are you stressed out about your grade? Do you want to know what your percentage is to know your grade? Don't worry! We are here to help, we will calculate your overall percentage so that you don't have to do the math or unknowingly make a mistake.</b></p>
       </header>
+      <div class="course">
+        <label for="courseName">What is the name of your course?</label>
+        <input type="text" id="courseName" name="courseName">
+      </div>
       <main>
-        <div>
-          <label for="courseName">What is the name of your course?</label>
-          <input type="text" id="courseName" name="courseName">
-        </div>
         <form name="gradeCalculator" onSubmit="return processForm()" method='get'>
-          <div class="labels">
-          </div>
-          <section>
-            <div class="assignmentName">
-              <label>Assignment name</label>
-              <input type='text' name='assignmentName' >
+          <section class="main-content">
+            <div class="sections">
+              <label class="labels">Assignment name</label>
+              <input type='text' name='assignmentName' class="assignmentName">
             </div>
-            <div class="percentage">
-              <label>Percentage worth it</label>
-              <input type='text' name='percentage'>
+            <div class="sections">
+              <label class="labels">Overall percentage</label>
+              <input type='text' name='percentage' class="percentage">
             </div>
-            <div class="marks">
-              <label>Marks obtained</label>
-              <input type='text' name='marks'>
+            <div class="sections">
+              <label class="labels">Marks obtained</label>
+              <input type='text' name='marks' class="marks">
             </div>
-            <div class="outOf">            
-              <label>Marks out of</label>
-              <input type='text' name='outOf'>
+            <div class="sections">            
+              <label class="labels">Marks out of</label>
+              <input type='text' name='outOf' class="outOf">
             </div>
           </section>
-          <input type="submit" value="Calculate my grade1" id="submit">
+          <div class="button">
+            <input type="submit" value="Calculate my grade!" class="submit">
+          </div>
         </form>
+        <div class="button">
+          <input type='submit' value="Add more assignments" class="submit">
+        </div>
       </main>
+      <script src="script.js"></script>
+
   </body>
 </html>

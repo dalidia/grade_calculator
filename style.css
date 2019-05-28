@@ -13,8 +13,8 @@ body {
 	background-color: #C0C0C0;
 }
 
-form {
-	padding: 2em;
+main {
+	padding: 2em 1em 2em 1em;
 	background-color:purple;
 	margin: 2em 2em 2em 2em;
 	border-radius: 1em;
@@ -26,8 +26,9 @@ h3 {
 
 label {
 	display: block;
-	text-align: center;
-
+	margin-bottom: 1.1em;
+	font-family: arial;
+	font-size: 1.2em;
 }
 
 input {
@@ -37,6 +38,7 @@ input {
 	height:2.4em;
 	width:10em;
 	font-size: .9em;
+	margin: 1em 0 0 1em;
 }
 
 section {
@@ -58,16 +60,29 @@ header p {
 	font-size: 1.1em;
 }
 
-.assignmentName,
-.percentage,
-.marks,
-.outOf {
-	margin: 0 .7em 1em .7em;
+.sections {
+	margin: 1em .8em 1em 1em;
 
 }
 
-#submit {
+.course {
+	margin: 2em 0em 2em 2.6em;
+}
 
+.labels {
+	text-align: center;
+}
+
+.button {
+	text-align: center;
+}
+
+.submit {
+	width: 12em;
+	height: 3.6em;
+	border-radius: 1em;
+	background-color: #66ccff;
+	font-size:1.2em;
 }
 
 
