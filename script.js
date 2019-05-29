@@ -1,3 +1,4 @@
+// create a line of assignments
 function createAssignments() {
 	let divList = document.getElementsByClassName('main-content')[0];
 	let classNames = ['assignmentName', 'percentage', 'marks', 'outOf'];
@@ -18,6 +19,7 @@ function createAssignments() {
 	divList.appendChild(assignDiv);
 }
 
+// initialize assignments when it's loaded
 function showAssignments() {
 	let len = 5;
 
@@ -26,27 +28,32 @@ function showAssignments() {
 	}
 }
 
+// remove a line of assignments
 function removeAssignments() {
 	var divList = document.getElementsByClassName('main-content')[0];
 	var divLastChild = divList.lastElementChild;
 	divList.removeChild(divLastChild);
 }
 
-function validateForm(courseName, assignmentName, percentage, marks, outOf) {
+function validateForm(courseOb) {
+  courseName = courseObj.value;
 
+  if (isNaN(courseName) === false) {
+    alert('This is not a valid courseName. Please try again.')
+    courseObj.value = '';
+  }
 }
 
 function processForm() {
-  let courseName = document.getElementById('courseName');
-  courseName = courseName.value;
+  let courseObj = document.getElementById('courseName');
 
-  if (typeof courseName === 'string' || courseName instanceof String) {
-
-  }
-  alert(courseName);
+  
+  validateForm(courseObj);
+ 
   return false;
 }
 
+// handle the events
 function eventHandler() {
 	let moreAssigns = document.getElementsByClassName('submit')[1];
 	window.addEventListener("load", showAssignments);
