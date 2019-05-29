@@ -36,9 +36,16 @@ function removeAssignments() {
 }
 
 // validate inputs
-function validateForm(courseObj, assignmentObj, overallObj, marks, outObj) {
+function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
   let assignmentName, percentage, marks, outOf;
   let courseName = courseObj.value;
+  let properties = ['assignmentName', 'percentage', 'marks', 
+  'outOf'];
+  let assignments = [];
+  let numValid = 0;
+  let oneAssign;
+  // YOU CAN USE PUSH INTEAD OF
+  // let counter = 0;
 
   if (isNaN(courseName) === false) {
     alert('This is not a valid courseName. Please try again.')
@@ -47,7 +54,28 @@ function validateForm(courseObj, assignmentObj, overallObj, marks, outObj) {
 
   // loop through all the objects except courseObj
   for (let i = 0; i < assignmentObj.length;i++) {
-    console.log(assignmentObj[i]);
+    numValid = 0 ;
+
+    if (assignmentObj[i].value != '') {
+    	numValid += 1;
+    }
+    if (isNaN(percentObj[i].value) === false) {
+    	numValid += 1;
+    }
+    if (isNaN(marksObj[i].value) === false) {
+    	numValid += 1;
+    }
+    if (isNaN(outObj[i].value) === false) {
+    	numValid += 1;
+    }
+
+    if (numValid == 4) {
+    	oneAssign = {};
+    	oneAssign[properties[0]] = assignmentObj[i].value;
+    	oneAssign[properties[1]] = ;
+    }
+
+
   }
 }
 
