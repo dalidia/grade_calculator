@@ -35,20 +35,30 @@ function removeAssignments() {
 	divList.removeChild(divLastChild);
 }
 
-function validateForm(courseOb) {
-  courseName = courseObj.value;
+// validate inputs
+function validateForm(courseObj, assignmentObj, overallObj, marks, outObj) {
+  let assignmentName, percentage, marks, outOf;
+  let courseName = courseObj.value;
 
   if (isNaN(courseName) === false) {
     alert('This is not a valid courseName. Please try again.')
     courseObj.value = '';
   }
+
+  // loop through all the objects except courseObj
+  for (let i = 0; i < assignmentObj.length;i++) {
+    console.log(assignmentObj[i]);
+  }
 }
 
 function processForm() {
   let courseObj = document.getElementById('courseName');
+  let assignmentObj = document.getElementsByClassName('assignmentName');
+  let overallObj = document.getElementsByClassName('percentage');
+  let marks = document.getElementsByClass('marks');
+  let outObj = document.getElementsByClass('outOf');
 
-  
-  validateForm(courseObj);
+  validateForm(courseObj, assignmentObj, overallObj, marks, outObj);
  
   return false;
 }
