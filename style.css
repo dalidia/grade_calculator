@@ -80,13 +80,15 @@ header p {
 	display: flex;
 }
 
+.add,
+.remove,
 .submit {
 	width: 12em;
 	height: 3.6em;
 	border-radius: 1em;
 	background-color: #66ccff;
 	font-size:1.2em;
-	margin: 1em 0 .3em 0em;
+	margin: 1em 2em .3em 0em;
 }
 
 .assignmentName,
