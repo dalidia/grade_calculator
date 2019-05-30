@@ -35,9 +35,54 @@ function removeAssignments() {
 	divList.removeChild(divLastChild);
 }
 
+// create a table to show the results with titles 'Assignment Name' and percentage
+function showResults(results, label) {
+  let row, cells, titleLabel, text;
+  let table = document.createElement('table');
+  let main = document.getElementsByTagName('main')[0];
+  main.appendChild(table);
+  row = document.createElement('tr');
+  table.appendChild(row);
+
+
+  // Add labels
+  for (let i = 0; i < label.length; i++) {
+    titleLabel = document.createElement('th');
+    //titleLabel.setAttribute('scope', 'col');
+    text = document.createTextNode(label[i]);
+    titleLabel.appendChild(text)
+    row.appendChild(titleLabel);
+  }
+
+  // let titles = document.createElement('tr');
+  // table.appendChild(titles);
+  // let titleLabel1 = document.createElement('td');
+  // text1 = document.createTextNode('Assignment Name');
+  // titleLabel1.appendChild(text1);
+
+  for (let prop in results) {
+    // create table rows
+    row = document.createElement('tr');
+    table.appendChild(row);
+    //rows.setAttribute('scope', 'row')
+    cells = document.createElement('td');
+    text = document.createTextNode(prop);
+    cells.appendChild(text);
+    row.appendChild(cells);
+    cells = document.createElement('td');
+    text = document.createTextNode(results[prop]);
+    cells.appendChild(text);
+    row.appendChild(cells);
+    table.appendChild(row);
+
+  }
+}
+
 // use valid numbers to calculate the overall grade
 function calculateGrade(assignments, properties) {
   let results = {}, currentAssign, ratio, percentGained, overallGrade = 0;
+  // label for the table
+  let label = ['Assignment Name', 'Percentage'];
 
   for (let i = 0; i < assignments.length; i++) {
     currentAssign = assignments[i];
@@ -48,7 +93,7 @@ function calculateGrade(assignments, properties) {
     overallGrade += percentGained;
     results[currentAssign[properties[0]]] = percentGained;
   }
-  console.log(results);
+  showResults(results, label);
 }
 
 // validate inputs
@@ -103,15 +148,15 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
   }
   calculateGrade(assignments, properties);
 }
-
+// process the Form
 function processForm() {
   let courseObj = document.getElementById('courseName');
   let assignmentObj = document.getElementsByClassName('assignmentName');
-  let overallObj = document.getElementsByClassName('percentage');
-  let marks = document.getElementsByClassName('marks');
+  let percentObj = document.getElementsByClassName('percentage');
+  let marksObj = document.getElementsByClassName('marks');
   let outObj = document.getElementsByClassName('outOf');
 
-  validateForm(courseObj, assignmentObj, overallObj, marks, outObj);
+  validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj);
  
   return false;
 }

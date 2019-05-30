@@ -57,6 +57,10 @@ header p {
 	font-size: 1.3em;
 }
 
+table, td {
+  border: 1px solid black;
+}
+
 /*.sections {
 	margin: 0em 0em 0em 1em;
 
