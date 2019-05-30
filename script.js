@@ -36,8 +36,19 @@ function removeAssignments() {
 }
 
 // use valid numbers to calculate the overall grade
-function calculateGrade(assignments) {
+function calculateGrade(assignments, properties) {
+  let results = {}, currentAssign, ratio, percentGained, overallGrade = 0;
 
+  for (let i = 0; i < assignments.length; i++) {
+    currentAssign = assignments[i];
+    ratio = currentAssign[properties[2]] / currentAssign[properties[3]];
+    percentGained = ratio * currentAssign[properties[1]];
+    percentGained = Math.round(percentGained * 100) / 100;
+    percentGained = percentGained.toFixed(2);
+    overallGrade += percentGained;
+    results[currentAssign[properties[0]]] = percentGained;
+  }
+  console.log(results);
 }
 
 // validate inputs
@@ -78,7 +89,7 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
       numValid += 1;
     }
 
-    if (numValid == 4) {
+    if (numValid == properties.length) {
       oneAssign = {};
       oneAssign[properties[0]] = assignmentObj[i].value;
       oneAssign[properties[1]] = percentObj[i].value;
@@ -86,11 +97,11 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
       oneAssign[properties[3]] = outObj[i].value;
       assignments.push(oneAssign);
     }
-    if (numValid > 1 && numValid < 4) {
+    if (numValid > 1 && numValid < properties.length) {
       alert(numValid);
     }
   }
-  calculateGrade(assignments);
+  calculateGrade(assignments, properties);
 }
 
 function processForm() {
