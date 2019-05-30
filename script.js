@@ -35,10 +35,23 @@ function removeAssignments() {
 	divList.removeChild(divLastChild);
 }
 
+// use valid numbers to calculate the overall grade
+function calculateGrade(assignments) {
+
+}
+
 // validate inputs
-function validateForm(courseObj, assignmentObj, overallObj, marks, outObj) {
-  let assignmentName, percentage, marks, outOf;
+function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
+	// TODO: loop through the properties instead of assign it by numbers
+  //let assignmentName, percentage, marks, outOf;
   let courseName = courseObj.value;
+
+  let properties = ['assignmentName', 'percentage', 'marks', 'outOf'];
+  let assignments = [];
+  let numValid = 0;
+  let oneAssign;
+  // YOU CAN USE PUSH INTEAD OF
+  // let counter = 0;
 
   if (isNaN(courseName) === false) {
     alert('This is not a valid courseName. Please try again.')
@@ -46,17 +59,46 @@ function validateForm(courseObj, assignmentObj, overallObj, marks, outObj) {
   }
 
   // loop through all the objects except courseObj
+  // each property has a different test
   for (let i = 0; i < assignmentObj.length;i++) {
-    console.log(assignmentObj[i]);
+    numValid = 0 ;
+
+    if (assignmentObj[i].value != '') {
+      numValid += 1;
+    }
+    if (isNaN(percentObj[i].value) === false && percentObj[i].value !== '0' && percentObj[i].value !== '') {
+      numValid += 1;
+    } 
+
+    if (isNaN(marksObj[i].value) === false && marksObj[i].value !== '') {
+      numValid += 1;
+    }
+
+    if (isNaN(outObj[i].value) === false && outObj[i].value !== '0' && outObj[i].value !== '') {
+      numValid += 1;
+    }
+
+    if (numValid == 4) {
+      oneAssign = {};
+      oneAssign[properties[0]] = assignmentObj[i].value;
+      oneAssign[properties[1]] = percentObj[i].value;
+      oneAssign[properties[2]] = marksObj[i].value;
+      oneAssign[properties[3]] = outObj[i].value;
+      assignments.push(oneAssign);
+    }
+    if (numValid > 1 && numValid < 4) {
+      alert(numValid);
+    }
   }
+  calculateGrade(assignments);
 }
 
 function processForm() {
   let courseObj = document.getElementById('courseName');
   let assignmentObj = document.getElementsByClassName('assignmentName');
   let overallObj = document.getElementsByClassName('percentage');
-  let marks = document.getElementsByClass('marks');
-  let outObj = document.getElementsByClass('outOf');
+  let marks = document.getElementsByClassName('marks');
+  let outObj = document.getElementsByClassName('outOf');
 
   validateForm(courseObj, assignmentObj, overallObj, marks, outObj);
  
