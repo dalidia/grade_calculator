@@ -1,6 +1,8 @@
 # grade_calculator
 Created by Lidia Ataupillco Ramos
 
+Check it out on https://dalidia.github.io/grade_calculator/
+
 It calculates your overall grade percentage without you having to do any math!!! 
 It provides a user-friendly interface where you can input the name of your assignment such as midterms, finals, and assignments. Also, you can input the percentage that your assigment is worth it, the mark you got into that, and the marks out of it.
 
