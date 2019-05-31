@@ -3,10 +3,25 @@
 	margin:0;
 }
 
+/* Style for the header */
 header {
 	background-color: #0000FF;
 	padding: 2em 3em 2em 3em;	
 	font-family: arial;
+}
+
+header h1 {
+  color:white;
+  text-align: center;
+  font-size: 4em;
+  margin-bottom: .3em;
+}
+
+header p {
+  color:black;
+  line-height: 1.7em;
+  text-align:justify;
+  font-size: 1.6em;
 }
 
 body {
@@ -22,9 +37,10 @@ main {
 	margin: 0 auto;
 }
 
+/* Style for the FORM */
 h3 {
 	margin: 0 auto;
-	font-size: 1.2em;
+	font-size: 1.4em;
 }
 
 label {
@@ -43,22 +59,45 @@ input {
 	font-size: 1em;
 }
 
-header h1 {
-	color:white;
-	text-align: center;
-	font-size: 4em;
-	margin-bottom: .3em;
-}
+/* Style for the table */
 
-header p {
-	color:black;
-	line-height: 1.7em;
-	text-align:justify;
-	font-size: 1.3em;
+caption {
+  color: black;
+  font-size: 4em;
+  padding: 0 0 .6em 0;
 }
 
 table, td {
+  margin: 3em auto 1em auto;
   border: 1px solid black;
+  border-spacing: 0;
+}
+
+thead th {
+  font-weight: 4em;
+  font-size: 2em;
+  background: #8a97a0;
+  color: blue;
+  border: .1em solid black;
+}
+
+td {
+  font-size: 1.4em
+}
+
+tr {
+  background: wheat;
+  margin-bottom: 5em;
+
+}
+
+tr:last-child {
+  background-color: #7f83ffa8;
+}
+
+th, td {
+  text-align: left;
+  padding: 1.2em;
 }
 
 /*.sections {
@@ -95,9 +134,18 @@ table, td {
 	margin: 1em 2em .3em 0em;
 }
 
+.add:hover,
+.remove:hover,
+.submit:hover {
+  transform: scale(1.2);
+  transition: all .5s;
+}
+
 .assignmentName,
 .percentage,
 .marks,
 .outOf {
 	margin: 1em 3em 1em 2.3em;
+  padding: 0 0 0 .8em;
+
 }

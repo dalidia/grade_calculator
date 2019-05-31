@@ -21,7 +21,7 @@ function createAssignments() {
 
 // initialize assignments when it's loaded
 function showAssignments() {
-	let len = 5;
+	let len = 4;
 
 	for (let i = 0; i < len; i++) {
 		createAssignments();
@@ -36,46 +36,65 @@ function removeAssignments() {
 }
 
 // create a table to show the results with titles 'Assignment Name' and percentage
-function showResults(results, label) {
-  let row, cells, titleLabel, text;
-  let table = document.createElement('table');
-  let main = document.getElementsByTagName('main')[0];
-  main.appendChild(table);
-  row = document.createElement('tr');
-  table.appendChild(row);
+function showResults(results, label, overallGrade) {
+  let tablesExist = document.getElementsByTagName('table');
+  if (tablesExist.length != 0) {
+  	let tableParent = tablesExist[0].parentElement;
+  	tableParent.removeChild(tablesExist[0]);
+  }
 
+  // create table
+  let row, cells, titleLabel, text, tableHeader, captionEle, descripObj, description = 'Your grade';
+  let table = document.createElement('table');
+  let main = document.getElementsByTagName('body')[0];
+  main.appendChild(table);
+  captionEle = document.createElement('caption');
+  descripObj = document.createTextNode(description);
+  captionEle.appendChild(descripObj);
+  table.appendChild(captionEle);
+  tableHeader = document.createElement('thead');
+  table.appendChild(tableHeader);
+  row = document.createElement('tr');
+  tableHeader.appendChild(row);
+  // TODO: CREATE TBODY AND TFOOT, USE COLSPAN FOR TFOOT
 
   // Add labels
   for (let i = 0; i < label.length; i++) {
     titleLabel = document.createElement('th');
-    //titleLabel.setAttribute('scope', 'col');
+    titleLabel.setAttribute('scope', 'col');
     text = document.createTextNode(label[i]);
     titleLabel.appendChild(text)
     row.appendChild(titleLabel);
   }
 
-  // let titles = document.createElement('tr');
-  // table.appendChild(titles);
-  // let titleLabel1 = document.createElement('td');
-  // text1 = document.createTextNode('Assignment Name');
-  // titleLabel1.appendChild(text1);
-
   for (let prop in results) {
     // create table rows
     row = document.createElement('tr');
     table.appendChild(row);
-    //rows.setAttribute('scope', 'row')
+    row.setAttribute('scope', 'row')
     cells = document.createElement('td');
+    cells.setAttribute('scope', 'row')
     text = document.createTextNode(prop);
     cells.appendChild(text);
     row.appendChild(cells);
     cells = document.createElement('td');
-    text = document.createTextNode(results[prop]);
+    text = document.createTextNode(results[prop] + '%');
     cells.appendChild(text);
     row.appendChild(cells);
     table.appendChild(row);
-
   }
+
+  // Add overall grade 
+  row = document.createElement('tr');
+  table.appendChild(row);
+  cells = document.createElement('td');
+  text = document.createTextNode('Your grade');
+  cells.appendChild(text);
+  row.appendChild(cells);
+  cells = document.createElement('td');
+  text = document.createTextNode(overallGrade + '%');
+  cells.appendChild(text);
+  row.appendChild(cells);
 }
 
 // use valid numbers to calculate the overall grade
@@ -90,10 +109,11 @@ function calculateGrade(assignments, properties) {
     percentGained = ratio * currentAssign[properties[1]];
     percentGained = Math.round(percentGained * 100) / 100;
     percentGained = percentGained.toFixed(2);
-    overallGrade += percentGained;
+    overallGrade += parseFloat(percentGained);
     results[currentAssign[properties[0]]] = percentGained;
   }
-  showResults(results, label);
+  overallGrade = Math.round(overallGrade * 100) / 100;
+  showResults(results, label, overallGrade);
 }
 
 // validate inputs
@@ -180,5 +200,3 @@ function eventHandler() {
 }
 
 eventHandler();
-
-
