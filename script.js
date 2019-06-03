@@ -1,11 +1,10 @@
 // create a line of assignments
-function createAssignments() {
-	let divList = document.getElementsByClassName('main-content')[0];
+const createAssignments = () => {
+	const divList = document.getElementsByClassName('main-content')[0];
 	let classNames = ['assignmentName', 'percentage', 'marks', 'outOf'];
-	let assignDiv = document.createElement('div');
+	const assignDiv = document.createElement('div');
 	assignDiv.className = 'sections';
-	let assignInput;
-	let text;
+	let assignInput = null, text = null;
 
 	for (let i = 0; i < classNames.length; i++) {
 		assignInput = document.createElement('input');
@@ -20,8 +19,8 @@ function createAssignments() {
 }
 
 // initialize assignments when it's loaded
-function showAssignments() {
-	let len = 4;
+const showAssignments = () => {
+	const len = 4;
 
 	for (let i = 0; i < len; i++) {
 		createAssignments();
@@ -98,8 +97,8 @@ function showResults(results, label, overallGrade) {
 }
 
 // use valid numbers to calculate the overall grade
-function calculateGrade(assignments, properties) {
-  let results = {}, currentAssign, ratio, percentGained, overallGrade = 0;
+const calculateGrade = (assignments, properties) => {
+  let results = {}, currentAssign = null, ratio = null, percentGained = null, overallGrade = 0;
   // label for the table
   let label = ['Assignment Name', 'Percentage'];
 
@@ -125,11 +124,11 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
   let properties = ['assignmentName', 'percentage', 'marks', 'outOf'];
   let assignments = [];
   let numValid = 0;
-  let oneAssign;
+  let oneAssign = null;
   // YOU CAN USE PUSH INTEAD OF
   // let counter = 0;
 
-  if (isNaN(courseName) === false) {
+  if (!isNaN(courseName)) {
     alert('This is not a valid courseName. Please try again.')
     courseObj.value = '';
   }
@@ -142,15 +141,15 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
     if (assignmentObj[i].value != '') {
       numValid += 1;
     }
-    if (isNaN(percentObj[i].value) === false && percentObj[i].value !== '0' && percentObj[i].value !== '') {
+    if (!isNaN(percentObj[i].value) && percentObj[i].value !== '0' && percentObj[i].value !== '') {
       numValid += 1;
     } 
 
-    if (isNaN(marksObj[i].value) === false && marksObj[i].value !== '') {
+    if (!isNaN(marksObj[i].value) && marksObj[i].value !== '') {
       numValid += 1;
     }
 
-    if (isNaN(outObj[i].value) === false && outObj[i].value !== '0' && outObj[i].value !== '') {
+    if (!isNaN(outObj[i].value) && outObj[i].value !== '0' && outObj[i].value !== '') {
       numValid += 1;
     }
 
@@ -163,7 +162,7 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
       assignments.push(oneAssign);
     }
     if (numValid > 1 && numValid < properties.length) {
-      alert(numValid);
+      alert('Input is empty. The assignment\'s result will not show up unless the empty field is fill out.');
     }
   }
   calculateGrade(assignments, properties);
@@ -182,7 +181,7 @@ function processForm() {
 }
 
 // handle the events
-function eventHandler() {
+const eventHandler = () => {
 	let moreAssigns = document.getElementsByClassName('submit')[1];
 	window.addEventListener("load", showAssignments);
 
