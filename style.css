@@ -49,12 +49,9 @@ h3 {
 
 @media screen and (max-width: 800px) {
   main {
-<<<<<<< HEAD
-    width: 24em;
-=======
+    width: 23em;
     padding: 1.5em .5em 2em .5em;
     width: 21em;
->>>>>>> parent of 0b87804... try to fix the width
   }
 
   header {
@@ -212,19 +209,16 @@ th, td {
 .percentage {
 	margin: 1em .2em .4em 6em;
   padding: 0 0 0 .4em;
-  width: 4em;
 }
 
 .marks {
 	margin: 1em 0em .4em 8em;
   padding: 0 0 0 .4em;
-  width: 4em;
 }
 
 .outOf {
   margin: 1em 0em .4em 7em;
   padding: 0 0 0 .4em;
-  width: 4em;
 }
 
 @media screen and (max-width: 800px) {
