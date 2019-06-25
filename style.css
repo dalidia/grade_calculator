@@ -48,8 +48,8 @@ h3 {
 
 @media screen and (max-width: 1000px) {
   main {
-    padding: 2em .5em 2em .5em;
-    width: 20em;
+    padding: 1.5em .5em 2em .7em;
+    width: 25em;
     background-color: blue;
   }
 
