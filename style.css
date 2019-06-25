@@ -227,17 +227,17 @@ th, td {
   }
 
   .percentage {
-  	margin: .5em .1em 0em .4em;
+  	margin: .5em .1em 0em 1.4em;
   	width: 3em;
   }
 
   .marks {
-  	margin: .5em .1em 0em .4em;
+  	margin: .5em .1em 0em 1.9em;
   	width: 3em;
   }
 
   .outOf {
-  	margin: .5em .1em 0em .4em;
+  	margin: .5em .1em 0em .8em;
   	width: 3em;
   }
 
