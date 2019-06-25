@@ -168,8 +168,8 @@ th, td {
 }*/
 
 .main-content {
-  text-align: center;
-  margin: 0em;
+/*  text-align: center;
+*/
 }
 
 .course {
@@ -221,7 +221,7 @@ th, td {
   .percentage,
   .marks,
   .outOf {
-    margin: .5em .1em .5em .1em;
+    margin: .5em .1em 0em 0em;
     padding: 0em;
   }
 
