@@ -229,14 +229,17 @@ th, td {
 
   .percentage {
   	margin: .5em .1em 0em .4em;
+  	width: 3em;
   }
 
   .marks {
   	margin: .5em .1em 0em .4em;
+  	width: 3em;
   }
 
   .outOf {
   	margin: .5em .1em 0em .4em;
+  	width: 3em;
   }
 
   /*.percentage,
