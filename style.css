@@ -45,7 +45,8 @@ h3 {
 
 @media screen and (max-width: 2000px) {
   main {
-    width: 40em;
+    padding: 2em .2em 2em .2em;
+    width: 20em;
     background-color: blue;
   }
 
@@ -73,7 +74,7 @@ input {
 
 @media screen and (max-width: 2000px){
   input {
-    width: 5em;
+    width: 6em;
     height:1.4em;
   }
 }
