@@ -28,16 +28,17 @@ const showAssignments = () => {
 }
 
 // remove a line of assignments
-function removeAssignments() {
-	var divList = document.getElementsByClassName('main-content')[0];
-	var divLastChild = divList.lastElementChild;
+const removeAssignments = () => {
+	let divList = document.getElementsByClassName('main-content')[0];
+	let divLastChild = divList.lastElementChild;
 	divList.removeChild(divLastChild);
 }
 
 // create a table to show the results with titles 'Assignment Name' and percentage
-function showResults(results, label, overallGrade) {
+const showResults = (results, label, overallGrade) => {
   let tablesExist = document.getElementsByTagName('table');
-  if (tablesExist.length != 0) {
+  // if tableExist, remove
+  if (tablesExist.length) {
   	let tableParent = tablesExist[0].parentElement;
   	tableParent.removeChild(tablesExist[0]);
   }
@@ -116,7 +117,7 @@ const calculateGrade = (assignments, properties) => {
 }
 
 // validate inputs
-function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
+const validateForm = (courseObj, assignmentObj, percentObj, marksObj, outObj) => {
 	// TODO: loop through the properties instead of assign it by numbers
   //let assignmentName, percentage, marks, outOf;
   let courseName = courseObj.value;
@@ -129,7 +130,7 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
   // let counter = 0;
 
   if (!isNaN(courseName)) {
-    alert('This is not a valid courseName. Please try again.')
+    alert('This is not a valid course name. If you wish, try again')
     courseObj.value = '';
   }
 
@@ -138,19 +139,27 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
   for (let i = 0; i < assignmentObj.length;i++) {
     numValid = 0 ;
 
-    if (assignmentObj[i].value != '') {
+    if (assignmentObj[i].value) {
       numValid += 1;
     }
+    // verify if it's a number, it's not empty and it's not zero
     if (!isNaN(percentObj[i].value) && percentObj[i].value !== '0' && percentObj[i].value !== '') {
       numValid += 1;
-    } 
+    } else if (isNaN(percentObj[i].value)) {
+      alert('The ' + properties[1] + ' is not a valid number. Input a valid number.');
+    }
 
-    if (!isNaN(marksObj[i].value) && marksObj[i].value !== '') {
+    // verify if it's a number, and it's not empty
+    if (!isNaN(marksObj[i].value) && marksObj[i].value) {
       numValid += 1;
+    } else if (isNaN(marksObj[i].value)) {
+      alert('The ' + properties[2] + ' is not a valid number. Input a valid number.');
     }
 
     if (!isNaN(outObj[i].value) && outObj[i].value !== '0' && outObj[i].value !== '') {
       numValid += 1;
+    } else if (isNaN(outObj[i].value)) {
+      alert('The ' + properties[3] + ' is not a valid number. Input a valid number.');
     }
 
     if (numValid == properties.length) {
@@ -167,8 +176,9 @@ function validateForm(courseObj, assignmentObj, percentObj, marksObj, outObj) {
   }
   calculateGrade(assignments, properties);
 }
+
 // process the Form
-function processForm() {
+const processForm = () => {
   let courseObj = document.getElementById('courseName');
   let assignmentObj = document.getElementsByClassName('assignmentName');
   let percentObj = document.getElementsByClassName('percentage');

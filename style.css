@@ -1,13 +1,13 @@
 * {
-	box-sizing: border-box;
-	margin:0;
+  box-sizing: border-box;
+  margin:0;
 }
 
 /* Style for the header */
 header {
-	background-color: #0000FF;
-	padding: 2em 3em 2em 3em;	
-	font-family: arial;
+  background-color: #0000FF;
+  padding: 2em 3em 2em 3em; 
+  font-family: arial;
 }
 
 header h1 {
@@ -25,38 +25,53 @@ header p {
 }
 
 body {
-	background-color: #C0C0C0;
+  background-color: #C0C0C0;
 }
 
 main {
-	padding: 2em 1em 2em 1em;
-	background-color:purple;
-	border-radius: 1em;
-	font-family: arial;
-	width: 60em;
-	margin: 0 auto;
+  padding: 2em 1em 2em 1em;
+  background-color:purple;
+  border-radius: 1em;
+  font-family: arial;
+  width: 60em;
+  margin: 0 auto;
+}
+@media screen and (max-width: 2000px) {
+  main {
+    width: 40em;
+    background-color: blue;
+  }
+  
+
 }
 
 /* Style for the FORM */
 h3 {
-	margin: 0 auto;
-	font-size: 1.4em;
+  margin: 0 auto;
+  font-size: 1.4em;
 }
 
 label {
-	display: block;
-	margin-bottom: 1.1em;
-	font-family: arial;
-	font-size: 1.2em;
+  display: block;
+  margin-bottom: 1.1em;
+  font-family: arial;
+  font-size: 1.2em;
 }
 
 input {
-	background-color: grey;
-	border:none;
-	border-radius: .2em;
-	height:2.4em;
-	width:8.9em;
-	font-size: 1em;
+  background-color: grey;
+  border:none;
+  border-radius: .2em;
+  height:2.4em;
+  width:8.9em;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 2000px){
+  input {
+    width: 5em;
+    height:1.4em;
+  }
 }
 
 /* Style for the table */
@@ -101,37 +116,37 @@ th, td {
 }
 
 /*.sections {
-	margin: 0em 0em 0em 1em;
+  margin: 0em 0em 0em 1em;
 
 }*/
 
 .main-content {
-	text-align: center;
-	margin: 0em 0em 0em .3em;
+  text-align: center;
+  margin: 0em 0em 0em .3em;
 
 }
 
 .course {
-	margin: 2em 0em 2em 2.6em;
+  margin: 2em 0em 2em 2.6em;
 }
 
 .button {
-	text-align: center;
+  text-align: center;
 }
 
 .labels {
-	display: flex;
+  display: flex;
 }
 
 .add,
 .remove,
 .submit {
-	width: 12em;
-	height: 3.6em;
-	border-radius: 1em;
-	background-color: #66ccff;
-	font-size:1.2em;
-	margin: 1em 2em .3em 0em;
+  width: 12em;
+  height: 3.6em;
+  border-radius: 1em;
+  background-color: #66ccff;
+  font-size:1.2em;
+  margin: 1em 2em .3em 0em;
 }
 
 .add:hover,
@@ -145,7 +160,17 @@ th, td {
 .percentage,
 .marks,
 .outOf {
-	margin: 1em 3em 1em 2.3em;
+  margin: 1em 3em 1em 2.3em;
   padding: 0 0 0 .8em;
-
 }
+
+@media screen and (max-width: 2000px) {
+  .assignmentName,
+  .percentage,
+  .marks,
+  .outOf {
+    margin: .2em 1em .5em .7em;
+    padding: 0 0 0 .8em;
+  }
+}
+
