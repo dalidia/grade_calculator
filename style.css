@@ -156,15 +156,6 @@ th, td {
   }
 }
 
-/*.sections {
-  margin: 0em 0em 0em 1em;
-
-}*/
-
-.main-content {
-/*  text-align: center;
-*/}
-
 .course {
   margin: 1.7em 0em 2em 2.6em;
 }
@@ -209,16 +200,19 @@ th, td {
 .percentage {
 	margin: 1em .2em .4em 6em;
   padding: 0 0 0 .4em;
+  width: 4em;
 }
 
 .marks {
 	margin: 1em 0em .4em 8em;
   padding: 0 0 0 .4em;
+  width: 4em;
 }
 
 .outOf {
   margin: 1em 0em .4em 7em;
   padding: 0 0 0 .4em;
+  width: 4em;
 }
 
 @media screen and (max-width: 800px) {
@@ -232,7 +226,7 @@ th, td {
   }
 
   .marks {
-  	margin: .5em .1em 0em 1.9em;
+  	margin: .5em .3em 0em 1.7em;
   	width: 3em;
   }
 
@@ -240,19 +234,6 @@ th, td {
   	margin: .5em .1em 0em .8em;
   	width: 3em;
   }
-
-  /*.percentage,
-  .marks,
-  .outOf {
-    margin: .5em .1em 0em 0em;
-    padding: 0em;
-  }
-
-  .percentage,
-  .marks,
-  .outOf {
-  	width: 3em;
-  }*/
 
   .add,
   .remove,
@@ -264,3 +245,7 @@ th, td {
   }
 }
 
+footer {
+  position:fixed;
+  bottom:0;
+}
