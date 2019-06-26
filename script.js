@@ -1,5 +1,5 @@
 // create a line of assignments
-const createAssignments = () => {
+const createAssignment = () => {
 	const divList = document.getElementsByClassName('main-content')[0];
 	let classNames = ['assignmentName', 'percentage', 'marks', 'outOf'];
 	const assignDiv = document.createElement('div');
@@ -18,12 +18,102 @@ const createAssignments = () => {
 	divList.appendChild(assignDiv);
 }
 
+// set your preferred language
+const setLanguage = (prefLanguage='English') => {
+  const language = {'English': 0, 'Spanish':1};
+  const lang_key = parseInt(language[prefLanguage]);
+
+  const translations = {
+    title: ['Grade Calculator', 'Calculadora De Notas'],
+    description: ["Are you stressed out about your grade? Do you want to know what your percentage is to know your grade? Don't worry! We are here to help, we will calculate your overall percentage so that you don't have to do the math or unknowingly make a mistake.",
+    "¿Estás estresado por tus notas? ¿Quieres saber cuál es tu porcentaje para saber cuál es tu nota? ¡No te preocupes! Estamos aquí para ayudarte, cálcularemos tu porcentaje total sin hacer ninguna calculación o cometer un error sin querer"],
+    courseNameQuestion: ['What is the name of your course? (OPTIONAL)', "¿Cuál es tu curso? (OPCIONAL)"],
+    assignmentName: ['Assignment name', 'Nombre del trabajo'],
+    overallPercentage: ['Overall percentage', 'Porcentaje total'],
+    marks: ['Marks obtained', 'Puntaje obtenido'],
+    outOf: ['Marks out of', 'Puntaje Total']
+  };
+
+  const buttonTranslations = {
+    calculateAssignment: ['Calculate my grade!', '¡Calcula my nota!'],
+    addAssignment: ['Add more assignments', 'Añade más trabajos'],
+    removeAssignment: ['Remove an assignment', 'Elimina un trabajo']
+  };
+
+  const docTranslate = document.querySelectorAll('[data-translate]');
+  const buttonTranslate = document.querySelectorAll('[button-translate]');
+
+  let key = '';
+
+  // Html 
+  for (let i = 0; i < docTranslate.length; i++) {
+    key = docTranslate[i].getAttribute('data-translate');
+    docTranslate[i].innerHTML = translations[key][lang_key];
+  }
+
+  // Button 
+  for (let i = 0; i < buttonTranslate.length; i++) {
+    key = buttonTranslate[i].getAttribute('button-translate');
+    buttonTranslate[i].value = buttonTranslations[key][lang_key];
+  }
+
+}
+
+// Give the user a language option
+const languageOption = () => {
+  let webLanguage = '', webText = '', space = ' ';
+  const languageDiv = document.getElementsByClassName('language-holder')[0];
+  const languageHolder = document.createElement('p');
+  const languageOptionText = document.createTextNode('Choose your preferred language');
+  languageHolder.appendChild(languageOptionText);
+  const languageOptionHolder = document.createElement('span');
+  languageOptionHolder.className = 'language-Option';
+  const languages = ['English', 'Spanish'];
+
+  // add languages
+  for (let i =0 ; i < languages.length; i++) {
+    webLanguage = document.createElement('span');
+    webText = document.createTextNode(languages[i]);
+    webLanguage.className = languages[i] + '-Option';
+    webLanguage.appendChild(webText);
+
+    if (languages.length != 1) {
+      if (i != languages.length -1) {
+        languageOptionHolder.appendChild(webLanguage);
+        space = document.createTextNode(' | ');
+        languageOptionHolder.appendChild(space)
+      } else {
+        languageOptionHolder.appendChild(webLanguage);
+      }
+    } else {
+      languageOptionHolder.appendChild(webLanguage);
+    }
+  }
+
+  languageDiv.appendChild(languageHolder);
+  languageDiv.appendChild(languageOptionHolder);
+  setLanguage();
+}
+
+// add footer
+const addFooter = () => {
+  const body = document.getElementsByTagName('body')[0];
+  const footer = document.createElement('footer');
+  const year = new Date().getFullYear();
+  const author = ' Lidia Ataupillco Ramos'
+  const copyright = document.createTextNode('Copyright © ' + year + author);
+  footer.appendChild(copyright);
+  body.appendChild(footer);
+}
+
 // initialize assignments when it's loaded
 const showAssignments = () => {
 	const len = 4;
 
+  languageOption();
+  addFooter();
 	for (let i = 0; i < len; i++) {
-		createAssignments();
+		createAssignment();
 	}
 }
 
@@ -95,6 +185,8 @@ const showResults = (results, label, overallGrade) => {
   text = document.createTextNode(overallGrade + '%');
   cells.appendChild(text);
   row.appendChild(cells);
+
+  document.getElementsByTagName("footer")[0].setAttribute('bottom', '0');
 }
 
 // use valid numbers to calculate the overall grade
@@ -192,20 +284,27 @@ const processForm = () => {
 
 // handle the events
 const eventHandler = () => {
-	let moreAssigns = document.getElementsByClassName('submit')[1];
+	const moreAssigns = document.getElementsByClassName('submit')[1];
 	window.addEventListener("load", showAssignments);
 
-	let buttonHandler = document.getElementsByClassName('button')[1];
+	const buttonHandler = document.getElementsByClassName('button')[1];
 	buttonHandler.addEventListener('click', (event) => {
 		if (event.target.tagName == 'INPUT') {
 			if (event.target.className == 'add') {
-				createAssignments();
+				createAssignment();
 			}
 			if (event.target.className == 'remove') {
-				removeAssignments();
+				removeAssignment();
 			}
 		}
 	});
+  const languageButton = document.getElementsByClassName('language-holder')[0];
+  languageButton.addEventListener('click', (event) => {
+    if (event.target.tagName == 'SPAN') {
+      const lang = event.target.innerHTML;
+      setLanguage(lang);
+    }
+  });
 }
 
 eventHandler();

@@ -14,19 +14,21 @@
   </head>
   <body>
       <header>
-        <h1>Grade Calculator</h1>
-        <p>Are you stressed out about your grade? Do you want to know what your percentage is to know your grade? Don't worry! We are here to help, we will calculate your overall percentage so that you don't have to do the math or unknowingly make a mistake.</p>
+        <div class='language-holder'>
+        </div>
+        <h1 data-translate="title"></h1>
+        <p data-translate='description'></p>
       </header>
       <div class="course">
-        <label for="courseName">What is the name of your course? (OPTIONAL)</label>
+        <label data-translate='courseNameQuestion' for="courseName"></label>
         <input type="text" id="courseName" name="courseName">
       </div>
       <main>
         <div class="labels">
-          <h3>Assignment name</h3>
-          <h3>Overall percentage</h3>
-          <h3>Marks obtained</h3>
-          <h3>Marks out of</h3>
+          <h3 data-translate='assignmentName'></h3>
+          <h3 data-translate='overallPercentage'></h3>
+          <h3 data-translate='marks'></h3>
+          <h3 data-translate='outOf'></h3>
         </div>
         <form name="gradeCalculator" onSubmit="return processForm()" method='get'>
           <section class='main-content'>
@@ -38,17 +40,14 @@
             </div>
           </section>
           <div class="button">
-            <input type="submit" value="Calculate my grade!" class="submit">
+            <input button-translate='calculateAssignment' type="submit" value="Calculate my grade!" class="submit">
           </div>
         </form>
         <div class="button">
-          <input type='submit' value="Add more assignments" class="add">
-          <input type="submit" value="Remove an assignment" class="remove">
+          <input button-translate='addAssignment' type='submit' class="add">
+          <input button-translate='removeAssignment' type="submit" class="remove">
         </div>
       </main>
-      <footer>
-        <p>Copyright &copy</p>
-      </footer>
       <script src="script.js"></script>
   </body>
 </html>

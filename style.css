@@ -5,7 +5,7 @@
 
 /* Style for the header */
 header {
-  background-color: #0000FF;
+  background-color: #3232FF;
   padding: 1.2em 2em 1.2em 2em; 
   font-family: arial;
 }
@@ -160,6 +160,11 @@ th, td {
   margin: 1.7em 0em 2em 2.6em;
 }
 
+.English-Option:hover,
+.Spanish-Option:hover {
+  font-size: 1.3em;
+}
+
 @media screen and (max-width: 800px) {
   .course {
     margin: .7em 0em .7em 1.6em;
@@ -238,7 +243,7 @@ th, td {
   .add,
   .remove,
   .submit {
-    width: 11.5em;
+    width: 11.9em;
     height: 2.6em;
     font-size:.7em;
     margin: 1em .5em .3em 0em;
@@ -246,6 +251,10 @@ th, td {
 }
 
 footer {
-  position:fixed;
   bottom:0;
+  background: #3232FF;
+  width: 100%;
+  padding: 1.3em;
+  text-align: center;
+  color: white;
 }
