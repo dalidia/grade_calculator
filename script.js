@@ -20,10 +20,14 @@ const createAssignment = () => {
 
 // set your preferred language
 const setLanguage = (prefLanguage='English') => {
-  const language = {'English': 0, 'Spanish':1};
-  const lang_key = parseInt(language[prefLanguage]);
+  const language = {'English': [0, 'en-US'], 'Español': [1, 'es-PE']};
+  const lang_code = 0;
+  const lang_key = parseInt(language[prefLanguage][0]);
+	const root = document.documentElement;
+	root['lang'] = language[prefLanguage][1];  
 
   const translations = {
+  	translationOption: ['Choose your preferred language', 'Elige tu idioma preferido'],
     title: ['Grade Calculator', 'Calculadora De Notas'],
     description: ["Are you stressed out about your grade? Do you want to know what your percentage is to know your grade? Don't worry! We are here to help, we will calculate your overall percentage so that you don't have to do the math or unknowingly make a mistake.",
     "¿Estás estresado por tus notas? ¿Quieres saber cuál es tu porcentaje para saber cuál es tu nota? ¡No te preocupes! Estamos aquí para ayudarte, cálcularemos tu porcentaje total sin hacer ninguna calculación o cometer un error sin querer"],
@@ -56,7 +60,6 @@ const setLanguage = (prefLanguage='English') => {
     key = buttonTranslate[i].getAttribute('button-translate');
     buttonTranslate[i].value = buttonTranslations[key][lang_key];
   }
-
 }
 
 // Give the user a language option
@@ -66,13 +69,14 @@ const languageOption = () => {
   const languageHolder = document.createElement('p');
   const languageOptionText = document.createTextNode('Choose your preferred language');
   languageHolder.appendChild(languageOptionText);
-  const languageOptionHolder = document.createElement('span');
+  languageHolder.setAttribute('data-translate', 'translationOption');
+  const languageOptionHolder = document.createElement('div');
   languageOptionHolder.className = 'language-Option';
-  const languages = ['English', 'Spanish'];
+  const languages = ['English', 'Español'];
 
   // add languages
   for (let i =0 ; i < languages.length; i++) {
-    webLanguage = document.createElement('span');
+    webLanguage = document.createElement('p');
     webText = document.createTextNode(languages[i]);
     webLanguage.className = languages[i] + '-Option';
     webLanguage.appendChild(webText);
@@ -300,7 +304,7 @@ const eventHandler = () => {
 	});
   const languageButton = document.getElementsByClassName('language-holder')[0];
   languageButton.addEventListener('click', (event) => {
-    if (event.target.tagName == 'SPAN') {
+    if (event.target.tagName == 'P') {
       const lang = event.target.innerHTML;
       setLanguage(lang);
     }

@@ -161,8 +161,18 @@ th, td {
 }
 
 .English-Option:hover,
-.Spanish-Option:hover {
-  font-size: 1.3em;
+.Español-Option:hover {
+  transform: scale(1.2);
+}
+
+.English-Option,
+.Español-Option {
+  display: inline-block;
+  color: black;
+}
+
+.language-holder p {
+  font-size: 1.1em;
 }
 
 @media screen and (max-width: 800px) {
