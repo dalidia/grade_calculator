@@ -5,7 +5,7 @@
 
 /* Style for the header */
 header {
-  background-color: #3232FF;
+  background-color: #324bffb5;
   padding: 1.2em 2em 1.2em 2em; 
   font-family: arial;
 }
@@ -262,7 +262,7 @@ th, td {
 
 footer {
   bottom:0;
-  background: #3232FF;
+  background: #324bffb5;
   width: 100%;
   padding: 1.3em;
   text-align: center;

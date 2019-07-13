@@ -269,6 +269,10 @@ const validateForm = (courseObj, assignmentObj, percentObj, marksObj, outObj) =>
     if (numValid > 1 && numValid < properties.length) {
       alert('Input is empty. The assignment\'s result will not show up unless the empty field is fill out.');
     }
+
+    if (numValid === properties.length) {
+      alert('Calculation completed');
+    }
   }
   calculateGrade(assignments, properties);
 }
