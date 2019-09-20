@@ -122,7 +122,7 @@ const showAssignments = () => {
 }
 
 // remove a line of assignments
-const removeAssignments = () => {
+const removeAssignment = () => {
 	let divList = document.getElementsByClassName('main-content')[0];
 	let divLastChild = divList.lastElementChild;
 	divList.removeChild(divLastChild);
