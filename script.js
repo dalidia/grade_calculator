@@ -122,16 +122,18 @@ const showAssignments = () => {
 }
 
 // remove a line of assignments
-const removeAssignments = () => {
+const removeAssignment = () => {
 	let divList = document.getElementsByClassName('main-content')[0];
 	let divLastChild = divList.lastElementChild;
+  console.log(divLastChild);
 	divList.removeChild(divLastChild);
 }
 
 // create a table to show the results with titles 'Assignment Name' and percentage
 const showResults = (results, label, overallGrade) => {
   let tablesExist = document.getElementsByTagName('table');
-  // if tableExist, remove
+  
+  // if tableExist already exists, remove
   if (tablesExist.length) {
   	let tableParent = tablesExist[0].parentElement;
   	tableParent.removeChild(tablesExist[0]);
@@ -141,7 +143,8 @@ const showResults = (results, label, overallGrade) => {
   let row, cells, titleLabel, text, tableHeader, captionEle, descripObj, description = 'Your grade';
   let table = document.createElement('table');
   let main = document.getElementsByTagName('body')[0];
-  main.appendChild(table);
+  let footer = document.getElementsByTagName('footer')[0];
+  main.insertBefore(table, footer);
   captionEle = document.createElement('caption');
   descripObj = document.createTextNode(description);
   captionEle.appendChild(descripObj);
