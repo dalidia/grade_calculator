@@ -141,7 +141,8 @@ const showResults = (results, label, overallGrade) => {
   let row, cells, titleLabel, text, tableHeader, captionEle, descripObj, description = 'Your grade';
   let table = document.createElement('table');
   let main = document.getElementsByTagName('body')[0];
-  main.appendChild(table);
+  let footer = document.getElementsByTagName('footer')[0];
+  main.insertBefore(table, footer);
   captionEle = document.createElement('caption');
   descripObj = document.createTextNode(description);
   captionEle.appendChild(descripObj);
